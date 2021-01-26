@@ -1,12 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
-export const Widget = styled.div`
+const Widget = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary.main};
-  background-color: ${({ theme }) => {
-    return theme.colors.primary.dark;
-  }};
+  background-color: ${({ theme }) => theme.colors.primary.dark};
   border-radius: 4px;
   overflow: hidden;
   h1,
@@ -24,7 +22,7 @@ export const Widget = styled.div`
     line-height: 1;
     color: whitesmoke;
   }
-`;
+`
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
@@ -38,7 +36,7 @@ Widget.Content = styled.div`
     list-style: none;
     padding: 0;
   }
-`;
+`
 
 Widget.Header = styled.header`
   display: flex;
@@ -50,4 +48,6 @@ Widget.Header = styled.header`
   * {
     margin: 0;
   }
-`;
+`
+
+export default Widget

@@ -28,7 +28,8 @@ html, body {
 }
 `;
 
-const { theme } = db.theme;
+// eslint-disable-next-line prefer-destructuring
+const theme = db.theme;
 
 export default function App({ Component, pageProps }) {
   return (
