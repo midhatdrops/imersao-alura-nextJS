@@ -1,6 +1,8 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import db from '../db.json';
 
+import Head from '../src/Components/Head/index.js';
+
 const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
@@ -30,6 +32,7 @@ const theme = db.theme;
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />
