@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 
 function IndexPage() {
@@ -7,7 +8,7 @@ function IndexPage() {
       <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet"
-      ></link>
+      />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <title>Alura Quiz sobre Pokemon Fire Red</title>
       <meta name="title" content="Alura Quiz sobre Pokemon Fire Red" />
@@ -90,7 +91,7 @@ function IndexPage() {
         name="msapplication-TileImage"
         content="../../../assets/favicon/ms-icon-144x144.png"
       />
-      <meta name="theme-color" content="#ffffff"></meta>
+      <meta name="theme-color" content="#ffffff" />
     </Head>
   );
 }

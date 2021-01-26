@@ -1,10 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 import db from '../db.json';
-import { Widget } from '../src/Components/Widget/index.js';
-import Footer from '../src/Components/Footer/index.js';
-import GitHubCorner from '../src/Components/GitHubCorner/index.js';
-import QuizBackground from '../src/Components/QuizBackground/index.js';
-import QuizLogo from '../src/Components/QuizLogo/index.js';
+import { Widget } from '../src/Components/Widget/index';
+import Footer from '../src/Components/Footer/index';
+import GitHubCorner from '../src/Components/GitHubCorner/index';
+import QuizBackground from '../src/Components/QuizBackground/index';
+import QuizLogo from '../src/Components/QuizLogo/index';
 
 export const QuizContainer = styled.div`
   width: 100%;
