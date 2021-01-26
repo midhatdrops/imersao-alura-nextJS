@@ -1,11 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import db from '../db.json';
-import { Widget } from '../src/Components/Widget/index';
-import Footer from '../src/Components/Footer/index';
-import GitHubCorner from '../src/Components/GitHubCorner/index';
-import QuizBackground from '../src/Components/QuizBackground/index';
-import QuizLogo from '../src/Components/QuizLogo/index';
+import React from "react"
+import styled from "styled-components"
+import db from "../db.json"
+import { Widget } from "../src/Components/Widget/index"
+import Footer from "../src/Components/Footer/index"
+import GitHubCorner from "../src/Components/GitHubCorner/index"
+import QuizBackground from "../src/Components/QuizBackground/index"
+import QuizLogo from "../src/Components/QuizLogo/index"
+
+import formSubmitHandler from "../src/Handlers/formSubmitHandler"
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -16,7 +18,7 @@ export const QuizContainer = styled.div`
     margin: auto;
     padding: 15px;
   }
-`;
+`
 
 export default function Home() {
   return (
@@ -28,7 +30,10 @@ export default function Home() {
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>{db.description}</p>
+            <form onSubmit={(e) => formSubmitHandler(e)}>
+              <input placeholder="Digite seu nome" />
+              <button type="submit">Enviar</button>
+            </form>
           </Widget.Content>
         </Widget>
 
@@ -44,5 +49,5 @@ export default function Home() {
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/omariosouto" />
     </QuizBackground>
-  );
+  )
 }
