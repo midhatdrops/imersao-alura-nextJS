@@ -10,6 +10,7 @@ import QuizContainer from "../src/Components/QuizContainer";
 import LoadingWidget from "../src/Components/LoadingWidget";
 
 import QuestionWidget from "../src/Components/QuestionWidget";
+import QuizResult from "../src/Components/QuizResult";
 
 const screenStates = {
   LOADING: "LOADING",
@@ -50,14 +51,7 @@ export default function QuizzPage() {
           </QuizContainer>
         </QuizBackground>
       )}
-      {screenState === screenStates.RESULT && (
-        <QuizBackground backgroundImage={db.bg}>
-          <QuizContainer>
-            <QuizLogo />
-            <div>Você acertou X Questões ! parabéns</div>
-          </QuizContainer>
-        </QuizBackground>
-      )}
+      {screenState === screenStates.RESULT && <QuizResult />}
     </>
   );
 }

@@ -13,6 +13,8 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
       answer.textContent === "Raichu"
     ) {
       answer.style.backgroundColor = "green";
+      const store = localStorage.getItem("CorrectAnswers");
+      localStorage.setItem("CorrectAnswers", +store + 1);
     } else {
       answer.style.backgroundColor = "red";
     }
