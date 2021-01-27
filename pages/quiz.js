@@ -1,40 +1,30 @@
 import React from "react";
 
 import db from "../db.json";
-import Widget from "../src/Components/Widget/index";
-import Footer from "../src/Components/Footer/index";
-import GitHubCorner from "../src/Components/GitHubCorner/index";
+// import Widget from "../src/Components/Widget/index";
+// import Footer from "../src/Components/Footer/index";
+// import GitHubCorner from "../src/Components/GitHubCorner/index";
 import QuizBackground from "../src/Components/QuizBackground/index";
 import QuizLogo from "../src/Components/QuizLogo/index";
 import QuizContainer from "../src/Components/QuizContainer";
+// import LoadingWidget from '../src/Components/LoadingWidget'
 
-import Form from "../src/Components/Form/index";
+import QuestionWidget from "../src/Components/QuestionWidget";
 
 export default function QuizzPage() {
+  const totalQuestions = db.questions.length;
+  const questionIndex = 0;
+  const question = db.questions[questionIndex];
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
-          <Widget.Header>
-            <h1>{db.title}</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <Form />
-          </Widget.Content>
-        </Widget>
-
-        <Widget>
-          <Widget.Header>
-            <h1>Quizes da Galera</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Footer />
+        <QuestionWidget
+          question={question}
+          totalQuestions={totalQuestions}
+          questionIndex={questionIndex}
+        />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/omariosouto" />
     </QuizBackground>
   );
 }

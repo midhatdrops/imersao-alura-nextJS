@@ -4,21 +4,18 @@
   "description": "Teste os seus conhecimentos sobre pokemons da primeira geração!",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "https://media.giphy.com/media/pRN57fPeBvuYE/giphy.gif",
+      "title": "Qual o nome desse pokemon?",
       "description": "Essa é pra aquecer",
-      "answer": 2,
-      "alternatives": [".elemento", "*elemento", "#elemento", "%elemento"]
+      "answer": 1,
+      "alternatives": ["Charmander", "Charmilion", "Charizard", "Blastoise"]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://media.giphy.com/media/xuXzcHMkuwvf2/giphy.gif",
+      "title": "Qual é a evolução do Pikachu?",
+      "description": "Ele requer uma pedra pra evoluir :)",
       "answer": 0,
-      "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
-      ]
+      "alternatives": ["Raichu", "Totodile"]
     }
   ],
   "external": [""],
