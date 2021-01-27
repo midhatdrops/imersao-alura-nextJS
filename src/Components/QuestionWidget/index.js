@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Widget from "../Widget/index";
 
 function QuestionWidget({ question, totalQuestions, questionIndex }) {
+  const questionId = `question__${questionIndex}`;
+  const [select, setSelect] = useState(false);
   return (
     <>
       {/* <BackLinkArrow href="/" /> */}
@@ -24,6 +26,21 @@ function QuestionWidget({ question, totalQuestions, questionIndex }) {
         <Widget.Content>
           <h3>{`${question.title}`}</h3>
           <small>{`${question.description}`}</small>
+          {question.alternatives.map((alternative, alternativeIndex) => {
+            const alternativeID = `alternative__${alternativeIndex}`;
+            return (
+              <Widget.Topic as="label" htmlFor={alternativeID}>
+                <input
+                  id={alternativeID}
+                  type="radio"
+                  name={questionId}
+                  style={{ display: "none" }}
+                  onClick={() => setSelect(true)}
+                />
+                {alternative}
+              </Widget.Topic>
+            );
+          })}
         </Widget.Content>
       </Widget>
 
