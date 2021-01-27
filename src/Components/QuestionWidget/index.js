@@ -4,7 +4,22 @@ import Button from "../Button";
 
 function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
   const questionId = `question__${questionIndex}`;
-  const [select, setSelect] = useState(false);
+  const [selected, setSelected] = useState();
+
+  function checkAnswer() {
+    const answer = document.querySelector(`label[for=${selected}]`);
+    if (
+      answer.textContent === "Charmander" ||
+      answer.textContent === "Raichu"
+    ) {
+      answer.style.backgroundColor = "green";
+    } else {
+      answer.style.backgroundColor = "red";
+    }
+    setTimeout(() => {
+      answer.style.backgroundColor = "#f6685e";
+    }, 1 * 1000);
+  }
 
   return (
     <>
@@ -31,7 +46,8 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              onSubmit();
+              checkAnswer();
+              setTimeout(() => onSubmit(), 1 * 2000);
             }}
           >
             {question.alternatives.map((alternative, alternativeIndex) => {
@@ -40,8 +56,12 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
                 <Widget.Topic
                   as="label"
                   htmlFor={alternativeID}
-                  style={{ border: select ? "1px solid black" : "" }}
+                  style={{
+                    border: selected === alternativeID ? "1px solid black" : "",
+                  }}
+                  key={alternativeID}
                 >
+                  {alternative}
                   <input
                     id={alternativeID}
                     type="radio"
@@ -49,9 +69,9 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
                     style={{
                       display: "none",
                     }}
-                    onClick={() => setSelect(true)}
+                    value={alternativeID}
+                    onClick={(e) => setSelected(e.target.value)}
                   />
-                  {alternative}
                 </Widget.Topic>
               );
             })}
