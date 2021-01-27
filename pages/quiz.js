@@ -19,11 +19,21 @@ const screenStates = {
 export default function QuizzPage() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
-  const questionIndex = 0;
+  const [questionIndex, setQuestionIndex] = React.useState(0);
   const question = db.questions[questionIndex];
   React.useEffect(() => {
     setTimeout(() => setScreenState(screenStates.QUIZ), 1 * 2000);
   }, []);
+
+  function handleSubmitQuiz() {
+    const nextQuestion = questionIndex + 1;
+    if (nextQuestion < totalQuestions) {
+      setQuestionIndex(questionIndex + 1);
+    } else {
+      setScreenState(screenStates.RESULT);
+    }
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -33,6 +43,7 @@ export default function QuizzPage() {
             question={question}
             totalQuestions={totalQuestions}
             questionIndex={questionIndex}
+            onSubmit={handleSubmitQuiz}
           />
         )}
         {screenState === screenStates.LOADING && <LoadingWidget />}

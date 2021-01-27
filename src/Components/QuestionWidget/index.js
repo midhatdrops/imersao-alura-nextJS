@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Widget from "../Widget/index";
+import Button from "../Button";
 
-function QuestionWidget({ question, totalQuestions, questionIndex }) {
+function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
   const questionId = `question__${questionIndex}`;
   const [select, setSelect] = useState(false);
   return (
@@ -26,21 +27,29 @@ function QuestionWidget({ question, totalQuestions, questionIndex }) {
         <Widget.Content>
           <h3>{`${question.title}`}</h3>
           <small>{`${question.description}`}</small>
-          {question.alternatives.map((alternative, alternativeIndex) => {
-            const alternativeID = `alternative__${alternativeIndex}`;
-            return (
-              <Widget.Topic as="label" htmlFor={alternativeID}>
-                <input
-                  id={alternativeID}
-                  type="radio"
-                  name={questionId}
-                  style={{ display: "none" }}
-                  onClick={() => setSelect(true)}
-                />
-                {alternative}
-              </Widget.Topic>
-            );
-          })}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmit();
+            }}
+          >
+            {question.alternatives.map((alternative, alternativeIndex) => {
+              const alternativeID = `alternative__${alternativeIndex}`;
+              return (
+                <Widget.Topic as="label" htmlFor={alternativeID}>
+                  <input
+                    id={alternativeID}
+                    type="radio"
+                    name={questionId}
+                    style={{ display: "none" }}
+                    onClick={() => setSelect(true)}
+                  />
+                  {alternative}
+                </Widget.Topic>
+              );
+            })}
+            <Button type="submit">Verificar</Button>
+          </form>
         </Widget.Content>
       </Widget>
 
