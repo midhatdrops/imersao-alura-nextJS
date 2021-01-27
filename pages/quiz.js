@@ -35,22 +35,29 @@ export default function QuizzPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
-        <QuizLogo />
-        {screenState === screenStates.QUIZ && (
-          <QuestionWidget
-            question={question}
-            totalQuestions={totalQuestions}
-            questionIndex={questionIndex}
-            onSubmit={handleSubmitQuiz}
-          />
-        )}
-        {screenState === screenStates.LOADING && <LoadingWidget />}
-        {screenState === screenStates.RESULT && (
-          <div> Você acertou X questões ! Parabéns!</div>
-        )}
-      </QuizContainer>
-    </QuizBackground>
+    <>
+      {screenState === screenStates.LOADING && <LoadingWidget />}
+      {screenState === screenStates.QUIZ && (
+        <QuizBackground backgroundImage={db.bg}>
+          <QuizContainer>
+            <QuizLogo />
+            <QuestionWidget
+              question={question}
+              totalQuestions={totalQuestions}
+              questionIndex={questionIndex}
+              onSubmit={handleSubmitQuiz}
+            />
+          </QuizContainer>
+        </QuizBackground>
+      )}
+      {screenState === screenStates.RESULT && (
+        <QuizBackground backgroundImage={db.bg}>
+          <QuizContainer>
+            <QuizLogo />
+            <div>Você acertou X Questões ! parabéns</div>
+          </QuizContainer>
+        </QuizBackground>
+      )}
+    </>
   );
 }

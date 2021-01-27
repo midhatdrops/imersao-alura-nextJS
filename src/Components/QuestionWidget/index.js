@@ -5,6 +5,7 @@ import Button from "../Button";
 function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
   const questionId = `question__${questionIndex}`;
   const [select, setSelect] = useState(false);
+
   return (
     <>
       {/* <BackLinkArrow href="/" /> */}
@@ -36,12 +37,18 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
             {question.alternatives.map((alternative, alternativeIndex) => {
               const alternativeID = `alternative__${alternativeIndex}`;
               return (
-                <Widget.Topic as="label" htmlFor={alternativeID}>
+                <Widget.Topic
+                  as="label"
+                  htmlFor={alternativeID}
+                  style={{ border: select ? "1px solid black" : "" }}
+                >
                   <input
                     id={alternativeID}
                     type="radio"
                     name={questionId}
-                    style={{ display: "none" }}
+                    style={{
+                      display: "none",
+                    }}
                     onClick={() => setSelect(true)}
                   />
                   {alternative}
