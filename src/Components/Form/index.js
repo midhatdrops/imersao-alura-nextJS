@@ -17,23 +17,23 @@ const Base = styled.form`
 
 // eslint-disable-next-line no-unused-vars
 export default function Form(props) {
-  const [name, setName] = useState("");
   const router = useRouter();
+  const [name, setName] = useState("");
+  function onSubmitForm(e) {
+    console.log("Redirecionando...");
+    e.preventDefault();
+    return router.push(`/quiz?name=${name}`);
+  }
   return (
     <>
-      <Base
-        onSubmit={function (e) {
-          console.log("Redirecionando...");
-          e.preventDefault();
-          return router.push(`/quiz?name=${name}`);
-        }}
-      >
+      <Base onSubmit={(e) => onSubmitForm(e)}>
         <Input
           placeholder="Digite seu nome"
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
         <Button type="submit" disabled={name.length === 0}>
-          Enviar
+          Jogar
         </Button>
       </Base>
     </>
