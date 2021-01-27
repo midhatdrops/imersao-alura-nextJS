@@ -7,15 +7,29 @@
       "image": "https://media.giphy.com/media/pRN57fPeBvuYE/giphy.gif",
       "title": "Qual o nome desse pokemon?",
       "description": "Essa é pra aquecer",
-      "answer": 1,
+      "answer": 0,
       "alternatives": ["Charmander", "Charmilion", "Charizard", "Blastoise"]
     },
     {
+      "image": "https://media.giphy.com/media/A9rtrLGbNZjgc/giphy.gif",
+      "title": "Qual é o nome da primeira evolução desse pokemon?",
+      "description": "Ele é do tipo dragão ! :)",
+      "answer": 1,
+      "alternatives": ["Dragonite", "Dratini", "Dragonair", "Squirtle"]
+    },
+    {
+      "image": "https://media.giphy.com/media/ysYvIll9qWCNq/giphy.gif",
+      "title": "Qual é o nome da evolução desse pokemon?",
+      "description": "Muito conhecido por ser do tipo aquático e dragão",
+      "answer": 2,
+      "alternatives": ["Gyrados", "Magikarp", "Growthie", "Meow"]
+    },
+    {
       "image": "https://media.giphy.com/media/xuXzcHMkuwvf2/giphy.gif",
-      "title": "Qual é a evolução do Pikachu?",
-      "description": "Ele requer uma pedra para evoluir :)",
-      "answer": 0,
-      "alternatives": ["Raichu", "Totodile"]
+      "title": "Qual é o nome da evolução desse pokemon?",
+      "description": "Ele requer uma pedra para evoluir !",
+      "answer": 3,
+      "alternatives": ["Raichu", "Magikarp", "Onix", "Squirtle"]
     }
   ],
   "external": [""],

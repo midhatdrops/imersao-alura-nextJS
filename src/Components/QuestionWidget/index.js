@@ -10,7 +10,9 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
     const answer = document.querySelector(`label[for=${selected}]`);
     if (
       answer.textContent === "Charmander" ||
-      answer.textContent === "Raichu"
+      answer.textContent === "Raichu" ||
+      answer.textContent === "Dratini" ||
+      answer.textContent === "Gyrados"
     ) {
       answer.style.backgroundColor = "green";
       const store = localStorage.getItem("CorrectAnswers");

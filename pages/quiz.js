@@ -23,7 +23,7 @@ export default function QuizzPage() {
   const [questionIndex, setQuestionIndex] = React.useState(0);
   const question = db.questions[questionIndex];
   React.useEffect(() => {
-    setTimeout(() => setScreenState(screenStates.QUIZ), 1 * 5000);
+    setTimeout(() => setScreenState(screenStates.QUIZ), 1 * 4000);
   }, []);
 
   function handleSubmitQuiz() {
