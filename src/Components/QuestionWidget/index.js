@@ -50,6 +50,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
               e.preventDefault();
               checkAnswer();
               setTimeout(() => onSubmit(), 1 * 2000);
+              setSelected("");
             }}
           >
             {question.alternatives.map((alternative, alternativeIndex) => {
@@ -77,7 +78,9 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
                 </Widget.Topic>
               );
             })}
-            <Button type="submit">Verificar</Button>
+            <Button type="submit" disabled={!selected}>
+              Verificar
+            </Button>
           </form>
         </Widget.Content>
       </Widget>
