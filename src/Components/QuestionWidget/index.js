@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import Widget from "../Widget/index";
 import Button from "../Button";
 
-function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
+function QuestionWidget({
+  question,
+  totalQuestions,
+  questionIndex,
+  onSubmit,
+  resultHandler,
+  result,
+}) {
   const questionId = `question__${questionIndex}`;
   const [selected, setSelected] = useState();
 
@@ -15,8 +22,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
       answer.textContent === "Gyrados"
     ) {
       answer.style.backgroundColor = "green";
-      const store = localStorage.getItem("CorrectAnswers");
-      localStorage.setItem("CorrectAnswers", +store + 1);
+      resultHandler(result + 1);
     } else {
       answer.style.backgroundColor = "red";
     }

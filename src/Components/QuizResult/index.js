@@ -6,8 +6,7 @@ import QuizLogo from "../QuizLogo";
 import Widget from "../Widget";
 
 // eslint-disable-next-line no-unused-vars
-function countAnswers() {
-  const correctAnswers = localStorage.getItem("CorrectAnswers");
+function countAnswers({ result }) {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -18,11 +17,9 @@ function countAnswers() {
             Você acertou:
             <br />
             <Widget.Topic style={{ textAlign: "center" }}>
-              {correctAnswers}
+              {result}
             </Widget.Topic>
-            {+correctAnswers === 1
-              ? "Questão! Parabéns"
-              : "Questões! Parabéns!"}
+            {+result === 1 ? "Questão! Parabéns" : "Questões! Parabéns!"}
           </Widget.Content>
         </Widget>
       </QuizContainer>

@@ -1,9 +1,6 @@
 import React from "react";
 
 import db from "../db.json";
-// import Widget from "../src/Components/Widget/index";
-// import Footer from "../src/Components/Footer/index";
-// import GitHubCorner from "../src/Components/GitHubCorner/index";
 import QuizBackground from "../src/Components/QuizBackground/index";
 import QuizLogo from "../src/Components/QuizLogo/index";
 import QuizContainer from "../src/Components/QuizContainer";
@@ -18,6 +15,7 @@ const screenStates = {
   RESULT: "RESULT",
 };
 export default function QuizzPage() {
+  const [result, setResult] = React.useState(0);
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
   const [questionIndex, setQuestionIndex] = React.useState(0);
@@ -47,11 +45,13 @@ export default function QuizzPage() {
               totalQuestions={totalQuestions}
               questionIndex={questionIndex}
               onSubmit={handleSubmitQuiz}
+              resultHandler={setResult}
+              result={result}
             />
           </QuizContainer>
         </QuizBackground>
       )}
-      {screenState === screenStates.RESULT && <QuizResult />}
+      {screenState === screenStates.RESULT && <QuizResult result={result} />}
     </>
   );
 }

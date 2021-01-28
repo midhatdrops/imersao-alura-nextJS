@@ -4,7 +4,6 @@ import QuizBackground from "../QuizBackground";
 import QuizContainer from "../QuizContainer";
 
 export default function LoadingWidget() {
-  localStorage.setItem("CorrectAnswers", 0);
   return (
     <QuizBackground backgroundImage="https://media.giphy.com/media/slVWEctHZKvWU/giphy.gif">
       <QuizContainer>
