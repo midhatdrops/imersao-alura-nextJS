@@ -53,7 +53,10 @@
         "main": "#fff",
         "dark": "#171B35"
       },
-      "contrastText": "#FFFFFF",
+      "contrastText": {
+        "main": "#FFFFFF",
+        "dark": "black"
+      },
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },
