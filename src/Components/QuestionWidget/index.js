@@ -11,29 +11,24 @@ function QuestionWidget({
   result,
 }) {
   const questionId = `question__${questionIndex}`;
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(null);
+  const isCorrect = selected === question.answer;
 
   function checkAnswer() {
-    const answer = document.querySelector(`label[for=${selected}]`);
-    if (
-      answer.textContent === "Charmander" ||
-      answer.textContent === "Raichu" ||
-      answer.textContent === "Dratini" ||
-      answer.textContent === "Gyrados"
-    ) {
-      answer.style.backgroundColor = "green";
+    const resp = document.querySelector(`label[for=alternative__${selected}]`);
+    if (isCorrect === true) {
+      resp.style.backgroundColor = "green";
       resultHandler(result + 1);
     } else {
-      answer.style.backgroundColor = "red";
+      resp.style.backgroundColor = "red";
     }
     setTimeout(() => {
-      answer.style.backgroundColor = "#f6685e";
+      resp.style.backgroundColor = "#f6685e";
     }, 1 * 1000);
   }
 
   return (
     <>
-      {/* <BackLinkArrow href="/" /> */}
       <Widget>
         <Widget.Header>
           <h3>
@@ -57,8 +52,8 @@ function QuestionWidget({
             onSubmit={(e) => {
               e.preventDefault();
               checkAnswer();
+              setSelected(null);
               setTimeout(() => onSubmit(), 1 * 2000);
-              setSelected("");
             }}
           >
             {question.alternatives.map((alternative, alternativeIndex) => {
@@ -68,7 +63,8 @@ function QuestionWidget({
                   as="label"
                   htmlFor={alternativeID}
                   style={{
-                    border: selected === alternativeID ? "1px solid black" : "",
+                    border:
+                      selected === alternativeIndex ? "1px solid black" : "",
                   }}
                   key={alternativeID}
                 >
@@ -81,12 +77,12 @@ function QuestionWidget({
                       display: "none",
                     }}
                     value={alternativeID}
-                    onClick={(e) => setSelected(e.target.value)}
+                    onChange={() => setSelected(alternativeIndex)}
                   />
                 </Widget.Topic>
               );
             })}
-            <Button type="submit" disabled={!selected}>
+            <Button type="submit" disabled={selected === null}>
               Verificar
             </Button>
           </form>

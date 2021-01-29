@@ -1,6 +1,6 @@
 import React from "react";
 
-import db from "../../db.json";
+import Mydb from "../../db.json";
 import QuizBackground from "../../src/Components/QuizBackground/index";
 import QuizLogo from "../../src/Components/QuizLogo/index";
 import QuizContainer from "../../src/Components/QuizContainer";
@@ -14,7 +14,7 @@ const screenStates = {
   QUIZ: "QUIZ",
   RESULT: "RESULT",
 };
-export default function QuizzPage() {
+export default function QuizzPage({ db = Mydb }) {
   const [result, setResult] = React.useState(0);
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
@@ -51,7 +51,9 @@ export default function QuizzPage() {
           </QuizContainer>
         </QuizBackground>
       )}
-      {screenState === screenStates.RESULT && <QuizResult result={result} />}
+      {screenState === screenStates.RESULT && (
+        <QuizResult result={result} dbBg={db.bg} />
+      )}
     </>
   );
 }

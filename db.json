@@ -21,14 +21,14 @@
       "image": "https://media.giphy.com/media/ysYvIll9qWCNq/giphy.gif",
       "title": "Qual é o nome da evolução desse pokemon?",
       "description": "Muito conhecido por ser do tipo aquático e dragão",
-      "answer": 2,
+      "answer": 0,
       "alternatives": ["Gyrados", "Magikarp", "Growthie", "Meow"]
     },
     {
       "image": "https://media.giphy.com/media/xuXzcHMkuwvf2/giphy.gif",
       "title": "Qual é o nome da evolução desse pokemon?",
       "description": "Ele requer uma pedra para evoluir !",
-      "answer": 3,
+      "answer": 0,
       "alternatives": ["Raichu", "Magikarp", "Onix", "Squirtle"]
     }
   ],

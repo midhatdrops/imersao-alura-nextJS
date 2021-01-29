@@ -6,9 +6,9 @@ import QuizLogo from "../QuizLogo";
 import Widget from "../Widget";
 
 // eslint-disable-next-line no-unused-vars
-function countAnswers({ result }) {
+function countAnswers({ result, dbBg = db.bg }) {
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={dbBg}>
       <QuizContainer>
         <QuizLogo />
         <Widget>
