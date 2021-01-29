@@ -16,7 +16,8 @@ const Widget = styled.div`
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0;
-    color: black;
+    color: ${({ theme }) =>
+      `${theme.colors.contrastText.dark || theme.colors.contrastText}`};
   }
   p {
     font-size: 14px;
@@ -24,9 +25,15 @@ const Widget = styled.div`
     line-height: 1;
     color: whitesmoke;
   }
+  small {
+    color: ${({ theme }) =>
+      `${theme.colors.contrastText.main || theme.colors.contrastText}`};
+  }
 `;
 
 Widget.Content = styled.div`
+  color: ${({ theme }) =>
+    `${theme.colors.contrastText.main || theme.colors.contrastText}`};
   padding: 24px 32px 32px 32px;
   & > *:first-child {
     margin-top: 0;
@@ -57,7 +64,8 @@ Widget.Header = styled.header`
 Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
-  color: ${({ theme }) => `${theme.colors.contrastText || "whitesmoke"}`};
+  color: ${({ theme }) =>
+    `${theme.colors.contrastText.dark || theme.colors.contrastText}`};
   background-color: ${({ theme }) =>
     `${theme.colors.primary.light || theme.colors.secondary}`};
   padding: 10px 15px;

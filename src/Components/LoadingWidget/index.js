@@ -11,7 +11,7 @@ export default function LoadingWidget() {
           <Widget.Header>Loading...</Widget.Header>
           <Widget.Content>
             {/*  eslint-disable-next-line react/jsx-curly-brace-presence */}
-            {`Espere um pouco até arrumarmos tudo por aqui :)`}
+            Espere um pouco até arrumarmos tudo por aqui :) !
           </Widget.Content>
         </Widget>
       </QuizContainer>

@@ -14,7 +14,7 @@ function countAnswers({ result, dbBg = db.bg }) {
         <Widget>
           <Widget.Header>Resultado</Widget.Header>
           <Widget.Content>
-            Você acertou:
+            <h1>Você acertou:</h1>
             <br />
             <Widget.Topic style={{ textAlign: "center" }}>
               {result}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Widget from "../Widget/index";
 import Button from "../Button";
+import BackLinkArrow from "../BackLinkArrow";
 
 function QuestionWidget({
   question,
@@ -31,6 +32,7 @@ function QuestionWidget({
     <>
       <Widget>
         <Widget.Header>
+          <BackLinkArrow href="/" />
           <h3>
             Pergunta {questionIndex + 1} de {`${totalQuestions}`}
           </h3>
