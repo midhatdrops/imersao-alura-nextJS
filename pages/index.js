@@ -28,12 +28,28 @@ export default function Home() {
             <h1>Quizes da Galera</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>lorem ipsum dolor sit amet...</p>
+            <ul>
+              {db.external.map((e) => {
+                const [projectName, gitHubUser] = e
+                  .replace(/\//g, "")
+                  .replace("https:", "")
+                  .replace(".vercel.app", "")
+                  .split(".");
+
+                return (
+                  <li key={e}>
+                    <Widget.Topic href={e}>
+                      {`${gitHubUser}/${projectName}`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/omariosouto" />
+      <GitHubCorner projectUrl="https://github.com/midhatdrops/imersao-alura-nextJS" />
     </QuizBackground>
   );
 }
