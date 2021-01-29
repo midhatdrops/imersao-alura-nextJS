@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import db from "../../../db.json";
 import QuizBackground from "../QuizBackground";
 import QuizContainer from "../QuizContainer";
@@ -11,7 +12,16 @@ function countAnswers({ result, dbBg = db.bg }) {
     <QuizBackground backgroundImage={dbBg}>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget
+          as={motion.section}
+          variants={{
+            show: { opacity: 1 },
+            hidden: { opacity: 0 },
+          }}
+          initial="hidden"
+          animate="show"
+          transition={{ ease: "easeInOut", duration: 1.3 }}
+        >
           <Widget.Header>Resultado</Widget.Header>
           <Widget.Content>
             <h1>Você acertou:</h1>

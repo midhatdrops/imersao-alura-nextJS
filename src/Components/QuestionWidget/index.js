@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Widget from "../Widget/index";
 import db from "../../../db.json";
 import Button from "../Button";
@@ -32,7 +33,16 @@ function QuestionWidget({
 
   return (
     <>
-      <Widget>
+      <Widget
+        as={motion.section}
+        variants={{
+          show: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+        initial="hidden"
+        animate="show"
+        transition={{ ease: "easeInOut", duration: 1.3 }}
+      >
         <Widget.Header>
           <BackLinkArrow href="/" />
           <h3>
@@ -93,7 +103,16 @@ function QuestionWidget({
         </Widget.Content>
       </Widget>
 
-      <Widget>
+      <Widget
+        as={motion.section}
+        variants={{
+          show: { opacity: 1 },
+          hidden: { opacity: 0 },
+        }}
+        initial="hidden"
+        animate="show"
+        transition={{ ease: "easeInOut", duration: 1.3, delay: 0.6 }}
+      >
         <Widget.Header>
           <h1>Quizes da Galera</h1>
         </Widget.Header>
