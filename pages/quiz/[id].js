@@ -1,9 +1,14 @@
 /* eslint-disable no-console */
 import React from "react";
+import { ThemeProvider } from "styled-components";
 import QuizPage from "./index";
 
 export default function QuizDaGaleraPage({ dbExterno }) {
-  return <QuizPage db={dbExterno} />;
+  return (
+    <ThemeProvider theme={dbExterno.theme}>
+      <QuizPage db={dbExterno} />
+    </ThemeProvider>
+  );
 }
 
 // eslint-disable-next-line no-unused-vars
