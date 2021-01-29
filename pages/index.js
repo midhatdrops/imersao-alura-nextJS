@@ -6,6 +6,7 @@ import GitHubCorner from "../src/Components/GitHubCorner/index";
 import QuizBackground from "../src/Components/QuizBackground/index";
 import QuizLogo from "../src/Components/QuizLogo/index";
 import QuizContainer from "../src/Components/QuizContainer";
+import Link from "../src/Components/Link";
 
 import Form from "../src/Components/Form/index";
 
@@ -38,7 +39,10 @@ export default function Home() {
 
                 return (
                   <li key={e}>
-                    <Widget.Topic href={e}>
+                    <Widget.Topic
+                      href={`/quiz/${projectName}___${gitHubUser}`}
+                      as={Link}
+                    >
                       {`${gitHubUser}/${projectName}`}
                     </Widget.Topic>
                   </li>

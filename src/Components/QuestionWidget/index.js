@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Widget from "../Widget/index";
+import db from "../../../db.json";
 import Button from "../Button";
 import BackLinkArrow from "../BackLinkArrow";
+import Link from "../Link";
 
 function QuestionWidget({
   question,
@@ -96,7 +98,27 @@ function QuestionWidget({
           <h1>Quizes da Galera</h1>
         </Widget.Header>
         <Widget.Content>
-          <p>lorem ipsum dolor sit amet...</p>
+          <ul>
+            {" "}
+            {db.external.map((e) => {
+              const [projectName, gitHubUser] = e
+                .replace(/\//g, "")
+                .replace("https:", "")
+                .replace(".vercel.app", "")
+                .split(".");
+
+              return (
+                <li key={e}>
+                  <Widget.Topic
+                    href={`/quiz/${projectName}___${gitHubUser}`}
+                    as={Link}
+                  >
+                    {`${gitHubUser}/${projectName}`}
+                  </Widget.Topic>
+                </li>
+              );
+            })}
+          </ul>
         </Widget.Content>
       </Widget>
     </>

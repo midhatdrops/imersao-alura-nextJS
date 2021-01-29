@@ -13,8 +13,9 @@ export default function QuizDaGaleraPage({ dbExterno }) {
 
 // eslint-disable-next-line no-unused-vars
 export async function getServerSideProps(context) {
+  const [projectName, gitHubUser] = context.query.id.split("___");
   const dbExterno = await fetch(
-    "https://aluraquiz-base.alura-challenges.vercel.app/api/db"
+    `https://${projectName}.${gitHubUser}.vercel.app/api/db`
   )
     .then((res) => {
       if (res.ok) {
